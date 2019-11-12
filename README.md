@@ -11,3 +11,5 @@ Android开发笔记<br>
 * [使用前台通知实现显示下载进度条和一些坑](https://github.com/DonLIs/Android_Note/blob/master/Notification)<br>
 
 * [线程安全的单例模式](https://github.com/DonLIs/Android_Note/blob/master/SingleTon)<br>
+
+* [解决依赖包冲突问题](https://github.com/DonLIs/Android_Note/blob/master/dependency)
