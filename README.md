@@ -13,3 +13,5 @@ Android开发笔记<br>
 * [线程安全的单例模式](https://github.com/DonLIs/Android_Note/blob/master/SingleTon)<br>
 
 * [解决依赖包冲突问题](https://github.com/DonLIs/Android_Note/blob/master/dependency)
+
+* [设计模式之工厂方法模式](https://github.com/DonLIs/Android_Note/blob/master/Factory)
