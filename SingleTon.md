@@ -1,7 +1,8 @@
-Android开发--线程安全的单例模式
+# Android开发--线程安全的单例模式
 
-方案一：双重加锁模式
+*方案一：*双重加锁模式
 
+```
 public class SingleTon{
 
   private volatile static SingleTon instance;
@@ -20,10 +21,11 @@ public class SingleTon{
   }
   
 }
+```
 
+*方案二：*内部静态类模式
 
-方案二：内部静态类模式
-
+```
 public class SingleTon{
 
   private SingleTon(){}
@@ -37,5 +39,5 @@ public class SingleTon{
   }
   
 }
-
+```
 
