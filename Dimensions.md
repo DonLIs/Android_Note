@@ -1,5 +1,4 @@
-Android开发--图标尺寸
-
+# Android开发--图标尺寸
 
  &nbsp; | mdpi | hdpi | xhdpi | xxhdpi | xxxhdpi
 ---- | ---- | ---- | ---- | ---- | ----
