@@ -14,6 +14,6 @@ Android开发笔记<br>
 
 * [解决依赖包冲突问题](https://github.com/DonLIs/Android_Note/blob/master/dependency)
 
-* [设计模式之工厂方法模式](https://github.com/DonLIs/Android_Note/blob/master/Factory)
+* [设计模式之工厂方法模式](https://github.com/DonLIs/Android_Note/blob/master/Factory.md)
 
 * [图标尺寸](https://github.com/DonLIs/Android_Note/blob/master/Dimensions.md)
