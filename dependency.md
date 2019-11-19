@@ -1,10 +1,11 @@
 # Android开发--解决依赖包冲突方法
 
 1、查看各个依赖包中的情况<br>
-  在Terminal终端中输入<br>
-  ```
-  gradlew -q app:dependencies
-  ```
+
+```
+//在Terminal终端中输入
+gradlew -q app:dependencies
+```
   
 2、在项目的build.gradle文件里<br>
 
