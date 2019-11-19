@@ -1,7 +1,8 @@
-Android开发--工厂方法模式
+# Android开发--工厂方法模式
 
-本文例子来自于《Android源码设计模式解析与实践》书中第五章--应用最广泛的模式--工厂方法模式
+本文例子来自于《Android源码设计模式解析与实践》书中第五章--应用最广泛的模式--工厂方法模式<br>
 
+```
 //抽象类
 public abstract class Phone{
 
@@ -14,7 +15,8 @@ public abstract class Phone{
   public abstract String getPhone();
   
 }
-
+```
+```
 //实现类A
 public class Iphone extends Phone{
 
@@ -89,7 +91,8 @@ public class XIAOMI extends Phone{
   }
 
 }
-
+```
+```
 //工厂类
 public class PhoneFactory{
 
@@ -107,4 +110,4 @@ public class PhoneFactory{
   }
 
 }
-
+```
