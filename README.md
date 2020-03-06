@@ -17,3 +17,5 @@ Android开发笔记<br>
 * [设计模式之工厂方法模式](https://github.com/DonLIs/Android_Note/blob/master/Factory.md)
 
 * [图标尺寸](https://github.com/DonLIs/Android_Note/blob/master/Dimensions.md)
+
+* [Nexus上传配置](https://github.com/DonLIs/Android_Note/blob/master/NexusUpload.md)
