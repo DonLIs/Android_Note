@@ -21,3 +21,7 @@ Android开发笔记<br>
 * [Nexus上传配置](https://github.com/DonLIs/Android_Note/blob/master/NexusUpload.md)
 
 * [协程详解](https://github.com/DonLIs/Android_Note/blob/master/Coroutine.md)
+
+* [ViewModel详解](https://github.com/DonLIs/Android_Note/blob/master/ViewModel.md)
+
+* [LiveData详解](https://github.com/DonLIs/Android_Note/blob/master/LiveData.md)
