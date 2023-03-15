@@ -1,8 +1,8 @@
 # Android_Note
 
-## 数据结构
+## Android基础知识
 
-* [启动页背景图全屏、沉浸式](https://github.com/DonLIs/Android_Note/blob/master/Splash.md)
+* [数据结构](https://github.com/DonLIs/Android_Note/blob/master/数据结构.md)
 
 ## Android开发笔记
 
