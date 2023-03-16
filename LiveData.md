@@ -152,13 +152,13 @@ LiveData 的数据重放问题也叫作数据倒灌、粘性事件，核心源�
 * Kotlin Flow
 
 UnPeekLiveData方案设计思路：
-1、继承LiveData类;
-2、维护一个原子整形变量（AtomicInteger）标记数据版本号；
-3、在setValue(T)时，版本号自增1；
-4、创建一个自定义的观察者（Observer）,内部维护一个外部添加的观察者和观察者版本号
+* 1、继承LiveData类;
+* 2、维护一个原子整形变量（AtomicInteger）标记数据版本号；
+* 3、在setValue(T)时，版本号自增1；
+* 4、创建一个自定义的观察者（Observer）,内部维护一个外部添加的观察者和观察者版本号
 ObserverWrapper(@NonNull Observer<? super T> observer, int version)
-5、调用LiveData#observe添加观察者时，获取LiveData的版本号同步到ObserverWrapper的版本号；
-6、在Observer#onChanged(T)回调时，判断LiveData版本号 > Observer版本号时才更新外部添加的观察者；
+* 5、调用LiveData#observe添加观察者时，获取LiveData的版本号同步到ObserverWrapper的版本号；
+* 6、在Observer#onChanged(T)回调时，判断LiveData版本号 > Observer版本号时才更新外部添加的观察者；
 
 ```
 转换LiveData数据类型，使用Transformations#map
