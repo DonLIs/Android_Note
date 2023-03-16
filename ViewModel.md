@@ -69,8 +69,7 @@ class MainHiltActivity : AppCompatActivity(){
 	lateinit var viewModel : MainViewModel
 ）
 ```
-
-### 需要注意的是，虽然可以使用依赖注入普通对象的方式注入 ViewModel，但是这相当于绕过了 ViewModelProvider 来创建 ViewModel。这意味着 ViewModel 实例一定不会存放在 ViewModelStore 中，将失去 ViewModel 恢复界面数据的特性。
+需要注意的是，虽然可以使用依赖注入普通对象的方式注入 ViewModel，但是这相当于绕过了 ViewModelProvider 来创建 ViewModel。这意味着 ViewModel 实例一定不会存放在 ViewModelStore 中，将失去 ViewModel 恢复界面数据的特性。
 
 
 ## ViewModel 的创建过程
