@@ -189,8 +189,8 @@ ViewModel 和 onSaveInstanceState() 都是对数据的恢复机制，但由于�
 
 参考资料：
 
-Jetpack 系列（3）—— 为什么 Activity 都重建了 ViewModel 还存在？
+Jetpack 系列（3）—— 为什么 Activity 都重建了 ViewModel 还存在？</br>
 https://juejin.cn/post/7121998366103306254
 	
-Kotlin | 委托机制 & 原理 & 应用
+Kotlin | 委托机制 & 原理 & 应用</br>
 https://juejin.cn/post/6958346113552220173
