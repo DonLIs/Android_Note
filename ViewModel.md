@@ -127,9 +127,9 @@ Fragment实现了ViewModelStoreOwner接口，依次调用了
 Fragment#getViewModelStore()->
 FragmentManager#getViewModelStore(Fragment)->
 FragmentManagerViewModel#getViewModelStore(Fragment)
-```
 
-mNonConfig的类型是FragmentManagerViewModel
+其中，mNonConfig的类型是FragmentManagerViewModel
+```
 
 
 ## 为什么 Activity 在屏幕旋转重建后可以恢复 ViewModel？
