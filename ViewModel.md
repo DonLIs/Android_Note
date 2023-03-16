@@ -43,8 +43,8 @@ val activityViewModel : MainViewModel by activityViewModels()
 val viewModel : MainViewModel by viewModels()
 
 ```
+activityViewModels和viewModels区别在于activityViewModels的viewModelStore是获取activity的，viewModels是获取fragment的。
 
-### activityViewModels和viewModels区别在于activityViewModels的viewModelStore是获取activity的，viewModels是获取fragment的。
 
 * Hilt 提供了注入部分 Jetpack 架构组件的支持
 
