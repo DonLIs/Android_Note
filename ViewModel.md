@@ -104,12 +104,11 @@ ViewModelStoreOwner
 
 by 关键字是 Kotlin 的委托属性，内部也是通过 ViewModelProvider 来创建 ViewModel。
 
+* ActivityViewModelLazy.kt
+* ViewModelLazy.kt
 
-ActivityViewModelLazy.kt
-ViewModelLazy.kt
 
-
-ViewModel 如何实现不同的作用域
+## ViewModel 如何实现不同的作用域
 ViewModel 内部会为不同的 ViewModel 宿主分配不同的 ViewModelStore 映射表，不同宿主是从不同的数据源来获取 ViewModel 的实例，因而得以区分作用域。
 
 具体来说，在使用 ViewModelProvider 时，我们需要传入一个 ViewModelStoreOwner 宿主接口，它将在 getViewModelStore() 接口方法中返回一个 ViewModelStore 实例。
