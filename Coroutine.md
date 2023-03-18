@@ -11,7 +11,7 @@
 
 
 * CoroutineScope.async()  
- 创建新协程，允许使用await挂起函数返回结果，调用await来获取结果或者异常，所以默认情况下不会抛出异常；
+创建新协程，允许使用await挂起函数返回结果，调用await来获取结果或者异常，所以默认情况下不会抛出异常；
 不使用await，则静默地丢弃异常。
 
 > launch和async的最大差异在对异常的处理方式不同
@@ -63,7 +63,7 @@
 ## job常用函数
 
 * fun start(): 
-	Boolean调用该函数来启动这个 Coroutine，如果当前 Coroutine 还没有执行调用该函数返回 true，如果当前 Coroutine 已经执行或者已经执行完毕，则调用该函数返回 false
+Boolean调用该函数来启动这个 Coroutine，如果当前 Coroutine 还没有执行调用该函数返回 true，如果当前 Coroutine 已经执行或者已经执行完毕，则调用该函数返回 false
 * fun cancel(cause: CancellationException? = null)
 	通过可选的取消原因取消此作业。 原因可以用于指定错误消息或提供有关取消原因的其他详细信息，以进行调试。
 * fun invokeOnCompletion(handler: CompletionHandler): DisposableHandle
