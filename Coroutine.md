@@ -27,12 +27,11 @@
 使用async函数创建多个Deferred，使用await函数执行获取结果，实现并发场景。
 
 
-launch函数参数分别是：
+### launch函数参数分别是：
 * CoroutineContext协程上下文
 * CoroutineStart协程启动模式
-* (suspend CoroutineScope.() -> Unit)协程体
-返回值是协程实例Job
-其中CoroutineContext又包括了Job、CoroutineDispatcher、CoroutineName。
+* (suspend CoroutineScope.() -> Unit)协程体,返回值是协程实例Job
+> 其中CoroutineContext又包括了Job、CoroutineDispatcher、CoroutineName。
 
 
 ## CoroutineContext-协程上下文
@@ -43,7 +42,6 @@ launch函数参数分别是：
 
 > CoroutineContext 有两个非常重要的元素 — Job 和 Dispatcher
 > Job 是当前的 Coroutine 实例，而 Dispatcher 决定了当前 Coroutine 执行的线程，还可以添加CoroutineName，用于调试，添加 CoroutineExceptionHandler 用于捕获异常，它们都实现了Element接口。
-
 >  在任务层级中，每个协程都会有一个父级对象，要么是 CoroutineScope 或者另外一个 coroutine。然而，实际上协程的父级 CoroutineContext 和父级协程的 CoroutineContext 是不一样的，因为有如下的公式:
 父级上下文 = 默认值 + 继承的 CoroutineContext + 参数
 
