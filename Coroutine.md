@@ -83,43 +83,40 @@ join 函数和前面三个函数不同，这是一个 suspend 函数。所以只
 ## Deferred常用函数
 
 	通过使用async创建协程可以得到一个有返回值Deferred，Deferred 接口继承自 Job 接口，额外提供了获取 Coroutine 返回结果的方法。由于 Deferred 继承自 Job 接口，所以 Job 相关的内容在 Deferred 上也是适用的。 Deferred 提供了额外三个函数来处理和Coroutine执行结果相关的操作。
-* suspend fun await(): T
-	用来等待这个Coroutine执行完毕并返回结果。
-* fun getCompleted(): T
-	用来获取Coroutine执行的结果。如果Coroutine还没有执行完成则会抛出 IllegalStateException ，如果任务被取消了也会抛出对应的异常。所以在执行这个函数之前，可以通过 isCompleted 来判断一下当前任务是否执行完毕了。
-* fun getCompletionExceptionOrNull(): Throwable?
-	获取已完成状态的Coroutine异常信息，如果任务正常执行完成了，则不存在异常信息，返回null。如果还没有处于已完成状态，则调用该函数同样会抛出 IllegalStateException，可以通过 isCompleted 来判断一下当前任务是否执行完毕了。
+* suspend fun await(): T  
+用来等待这个Coroutine执行完毕并返回结果。
+* fun getCompleted(): T   
+用来获取Coroutine执行的结果。如果Coroutine还没有执行完成则会抛出 IllegalStateException ，如果任务被取消了也会抛出对应的异常。所以在执行这个函数之前，可以通过 isCompleted 来判断一下当前任务是否执行完毕了。
+* fun getCompletionExceptionOrNull(): Throwable?   
+获取已完成状态的Coroutine异常信息，如果任务正常执行完成了，则不存在异常信息，返回null。如果还没有处于已完成状态，则调用该函数同样会抛出 IllegalStateException，可以通过 isCompleted 来判断一下当前任务是否执行完毕了。
 
 
 ## CoroutineDispatcher-调度器
 	CoroutineDispatcher 定义了 Coroutine 执行的线程。CoroutineDispatcher 可以限定 Coroutine 在某一个线程执行、也可以分配到一个线程池来执行、也可以不限制其执行的线程。
 	CoroutineDispatcher 是一个抽象类，所有 dispatcher 都应该继承这个类来实现对应的功能。Dispatchers 是一个标准库中帮我们封装了切换线程的帮助类，可以简单理解为一个线程池。
 
-* Dispatchers.Default
-	默认的调度器，适合处理后台计算，是一个CPU密集型任务调度器。如果创建 Coroutine 的时候没有指定 dispatcher，则一般默认使用这个作为默认值。Default dispatcher 使用一个共享的后台线程池来运行里面的任务。注意它和IO共享线程池，只不过限制了最大并发数不同。
-* Dispatchers.IO
-	顾名思义这是用来执行阻塞 IO 操作的，是和Default共用一个共享的线程池来执行里面的任务。根据同时运行的任务数量，在需要的时候会创建额外的线程，当任务执行完毕后会释放不需要的线程。
-* Dispatchers.Unconfined
-	由于Dispatchers.Unconfined未定义线程池，所以执行的时候默认在启动线程。遇到第一个挂起点，之后由调用resume的线程决定恢复协程的线程。
-* Dispatchers.Main：
-	指定执行的线程是主线程，在Android上就是UI线程。
+* Dispatchers.Default   
+默认的调度器，适合处理后台计算，是一个CPU密集型任务调度器。如果创建 Coroutine 的时候没有指定 dispatcher，则一般默认使用这个作为默认值。Default dispatcher 使用一个共享的后台线程池来运行里面的任务。注意它和IO共享线程池，只不过限制了最大并发数不同。
+* Dispatchers.IO   
+顾名思义这是用来执行阻塞 IO 操作的，是和Default共用一个共享的线程池来执行里面的任务。根据同时运行的任务数量，在需要的时候会创建额外的线程，当任务执行完毕后会释放不需要的线程。
+* Dispatchers.Unconfined   
+由于Dispatchers.Unconfined未定义线程池，所以执行的时候默认在启动线程。遇到第一个挂起点，之后由调用resume的线程决定恢复协程的线程。
+* Dispatchers.Main：   
+指定执行的线程是主线程，在Android上就是UI线程。
 
 ### 为什么子Coroutine 为指定Dispatcher时会继承父Coroutine的Dispatcher？
 > 由于子Coroutine 会继承父Coroutine 的 context，所以为了方便使用，我们一般会在 父Coroutine 上设定一个 Dispatcher，然后所有 子Coroutine 自动使用这个 Dispatcher。
 
 
 ## CoroutineStart-协程启动模式
-* CoroutineStart.DEFAULT:
-	协程创建后立即开始调度，在调度前如果协程被取消(cancel)，其将直接进入取消响应的状态
-	虽然是立即调度，但也有可能在执行前被取消
-* CoroutineStart.ATOMIC:
-	协程创建后立即开始调度，协程执行到第一个挂起点(suspend)之前不响应取消
-	虽然是立即调度，但其将调度和执行两个步骤合二为一了，就像它的名字一样，其保证调度和执行是原子操作，	因此协程也一定会执行
-* CoroutineStart.LAZY:
-	只要协程被需要时，包括主动调用该协程的start、join或者await等函数时才会开始调度，如果调度前就被取		消，协程将直接进入异常结束状态
-* CoroutineStart.UNDISPATCHED:
-	协程创建后立即在当前函数调用栈中执行，执行挂起点之前的代码（包括父Coroutine和该Coroutine挂起点之前的代码），直到遇到第一个真正的挂起点(suspend)，继续按顺序执行调用站外的代码，是否继续执行挂起点之后的代码取决于逻辑（调用job.join()、start()等）。
-	是立即执行，因此协程一定会执行。
+* CoroutineStart.DEFAULT:   
+协程创建后立即开始调度，在调度前如果协程被取消(cancel)，其将直接进入取消响应的状态,虽然是立即调度，但也有可能在执行前被取消
+* CoroutineStart.ATOMIC:  
+协程创建后立即开始调度，协程执行到第一个挂起点(suspend)之前不响应取消,虽然是立即调度，但其将调度和执行两个步骤合二为一了，就像它的名字一样，其保证调度和执行是原子操作，因此协程也一定会执行
+* CoroutineStart.LAZY:   
+只要协程被需要时，包括主动调用该协程的start、join或者await等函数时才会开始调度，如果调度前就被取消，协程将直接进入异常结束状态
+* CoroutineStart.UNDISPATCHED:   
+协程创建后立即在当前函数调用栈中执行，执行挂起点之前的代码（包括父Coroutine和该Coroutine挂起点之前的代码），直到遇到第一个真正的挂起点(suspend)，继续按顺序执行调用站外的代码，是否继续执行挂起点之后的代码取决于逻辑（调用job.join()、start()等）。是立即执行，因此协程一定会执行。
 
 
 ## CoroutineScope-协程作用域
@@ -129,12 +126,12 @@ CoroutineScope是一个接口
 CoroutineScope 只是定义了一个新 Coroutine 的执行 Scope。每个 coroutine builder 都是 CoroutineScope 的扩展函数，并且自动的继承了当前 Scope 的 coroutineContext 。
 
 	官方框架在实现复合协程的过程中也提供了作用域，主要用以明确写成之间的父子关系，以及对于取消或者异常处理等方面的传播行为。该作用域包括以下三种：
-* 顶级作用域
-	没有父协程的协程所在的作用域为顶级作用域。
-* 协同作用域
-	协程中启动新的协程，新协程为所在协程的子协程，这种情况下，子协程所在的作用域默认为协同作用域。此时子协程抛出的未捕获异常，都将传递给父协程处理，父协程同时也会被取消。
-* 主从作用域
-	与协同作用域在协程的父子关系上一致，区别在于，处于该作用域下的协程出现未捕获的异常时，不会将异常向上传递给父协程。
+* 顶级作用域   
+没有父协程的协程所在的作用域为顶级作用域。
+* 协同作用域    
+协程中启动新的协程，新协程为所在协程的子协程，这种情况下，子协程所在的作用域默认为协同作用域。此时子协程抛出的未捕获异常，都将传递给父协程处理，父协程同时也会被取消。
+* 主从作用域    
+与协同作用域在协程的父子关系上一致，区别在于，处于该作用域下的协程出现未捕获的异常时，不会将异常向上传递给父协程。
 
 ### 除了三种作用域中提到的行为以外，父子协程之间还存在以下规则：
 * 父协程被取消，则所有子协程均被取消。由于协同作用域和主从作用域中都存在父子协程关系，因此此条规则都适用。
