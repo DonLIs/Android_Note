@@ -29,3 +29,5 @@
 * [ViewModel详解](https://github.com/DonLIs/Android_Note/blob/master/ViewModel.md)
 
 * [LiveData详解](https://github.com/DonLIs/Android_Note/blob/master/LiveData.md)
+
+* [ARouter详解](https://github.com/DonLIs/Android_Note/blob/master/ARouter.md)
