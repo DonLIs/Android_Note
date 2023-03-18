@@ -62,7 +62,7 @@
 
 ## job常用函数
 
-* fun start(): 
+* fun start():   
 Boolean调用该函数来启动这个 Coroutine，如果当前 Coroutine 还没有执行调用该函数返回 true，如果当前 Coroutine 已经执行或者已经执行完毕，则调用该函数返回 false
 
 * fun cancel(cause: CancellationException? = null)
