@@ -65,15 +65,15 @@
 * fun start():   
 Boolean调用该函数来启动这个 Coroutine，如果当前 Coroutine 还没有执行调用该函数返回 true，如果当前 Coroutine 已经执行或者已经执行完毕，则调用该函数返回 false
 
-* fun cancel(cause: CancellationException? = null)
-	通过可选的取消原因取消此作业。 原因可以用于指定错误消息或提供有关取消原因的其他详细信息，以进行调试。
-* fun invokeOnCompletion(handler: CompletionHandler): DisposableHandle
-	通过这个函数可以给 Job 设置一个完成通知，当 Job 执行完成的时候会同步执行这个通知函数。 回调的通知对象类型为：typealias CompletionHandler = (cause: Throwable?) -> Unit. CompletionHandler 参数代表了 Job 是如何执行完成的。 cause 有下面三种情况：
+* fun cancel(cause: CancellationException? = null)   
+通过可选的取消原因取消此作业。 原因可以用于指定错误消息或提供有关取消原因的其他详细信息，以进行调试。
+* fun invokeOnCompletion(handler: CompletionHandler): DisposableHandle   
+通过这个函数可以给 Job 设置一个完成通知，当 Job 执行完成的时候会同步执行这个通知函数。 回调的通知对象类型为：typealias CompletionHandler = (cause: Throwable?) -> Unit. CompletionHandler 参数代表了 Job 是如何执行完成的。 cause 有下面三种情况：
 	* 如果 Job 是正常执行完成的，则 cause 参数为 null
 	* 如果 Job 是正常取消的，则 cause 参数为 CancellationException 对象。这种情况不应该当做错误处理，这是任务正常取消的情形。所以一般不需要在错误日志中记录这种情况。
 	* 其他情况表示 Job 执行失败了。这个函数的返回值为 DisposableHandle 对象，如果不再需要监控Job的完成情况了，则可以调用DisposableHandle.dispose 函数来取消监听。如果Job 已经执行完了，则无需调用dispose函数了，会自动取消监听。
-* suspend fun join()
-	join 函数和前面三个函数不同，这是一个 suspend 函数。所以只能在 Coroutine 内调用。这个函数会暂停当前所处的 Coroutine，直到该子Coroutine(调用join的Coroutine)执行完成。所以 join 函数一般用来在一个Coroutine 中等待 job 执行完成后继续向下执行。当 Job 执行完成后， job.join 函数恢复，这个时候 job 这个任务已经处于完成状态了，而调用 job.join 的 Coroutine 还继续处于 activie 状态。
+* suspend fun join()   
+join 函数和前面三个函数不同，这是一个 suspend 函数。所以只能在 Coroutine 内调用。这个函数会暂停当前所处的 Coroutine，直到该子Coroutine(调用join的Coroutine)执行完成。所以 join 函数一般用来在一个Coroutine 中等待 job 执行完成后继续向下执行。当 Job 执行完成后， job.join 函数恢复，这个时候 job 这个任务已经处于完成状态了，而调用 job.join 的 Coroutine 还继续处于 activie 状态。
 
 
 > 请注意，只有在其所有子级都完成后，作业才能完成。
