@@ -31,3 +31,5 @@
 * [LiveData详解](https://github.com/DonLIs/Android_Note/blob/master/LiveData.md)
 
 * [ARouter详解](https://github.com/DonLIs/Android_Note/blob/master/ARouter.md)
+
+* [Android中的异步任务](https://github.com/DonLIs/Android_Note/blob/master/异步任务.md)
