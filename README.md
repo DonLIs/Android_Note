@@ -1,10 +1,32 @@
 # Android_Note
 
-## Android基础知识
+## 基础知识
 
 * [数据结构](https://github.com/DonLIs/Android_Note/blob/master/数据结构.md)
 
-## Android开发笔记
+## 源码分析
+
+* [okhttp3源码分析](https://github.com/DonLIs/Android_Note/blob/master/okhttp3源码分析.md)
+
+* [Glide源码分析](https://github.com/DonLIs/Android_Note/blob/master/Glide源码分析.md)
+
+* [ViewRootImpl源码分析](https://github.com/DonLIs/Android_Note/blob/master/ViewRootImpl源码分析.md)
+
+* [ViewModel源码分析](https://github.com/DonLIs/Android_Note/blob/master/ViewModel源码分析.md)
+
+* [LiveData源码分析](https://github.com/DonLIs/Android_Note/blob/master/LiveData源码分析.md)
+
+## 开源代码详解
+
+* [ViewModel详解](https://github.com/DonLIs/Android_Note/blob/master/ViewModel.md)
+
+* [LiveData详解](https://github.com/DonLIs/Android_Note/blob/master/LiveData.md)
+
+* [ARouter详解](https://github.com/DonLIs/Android_Note/blob/master/ARouter.md)
+
+* [协程详解](https://github.com/DonLIs/Android_Note/blob/master/Coroutine.md)
+
+## 开发笔记
 
 * [启动页背景图全屏、沉浸式](https://github.com/DonLIs/Android_Note/blob/master/Splash.md)
 
@@ -24,20 +46,6 @@
 
 * [Nexus上传配置](https://github.com/DonLIs/Android_Note/blob/master/NexusUpload.md)
 
-* [协程详解](https://github.com/DonLIs/Android_Note/blob/master/Coroutine.md)
-
-* [ViewModel详解](https://github.com/DonLIs/Android_Note/blob/master/ViewModel.md)
-
-* [LiveData详解](https://github.com/DonLIs/Android_Note/blob/master/LiveData.md)
-
-* [ARouter详解](https://github.com/DonLIs/Android_Note/blob/master/ARouter.md)
-
 * [Android中的异步任务](https://github.com/DonLIs/Android_Note/blob/master/异步任务.md)
 
-* [LiveData源码分析](https://github.com/DonLIs/Android_Note/blob/master/LiveData源码分析.md)
 
-* [ViewModel源码分析](https://github.com/DonLIs/Android_Note/blob/master/ViewModel源码分析.md)
-
-* [okhttp3源码分析](https://github.com/DonLIs/Android_Note/blob/master/okhttp3源码分析.md)
-
-* [Glide源码分析](https://github.com/DonLIs/Android_Note/blob/master/Glide源码分析.md)
