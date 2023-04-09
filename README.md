@@ -30,6 +30,8 @@
 
 ## 开发笔记
 
+* [Android启动模式](https://github.com/DonLIs/Android_Note/blob/master/Android启动模式.md)
+
 * [启动页背景图全屏、沉浸式](https://github.com/DonLIs/Android_Note/blob/master/Splash.md)
 
 * [UI-改变Button的颜色并保持点击效果](https://github.com/DonLIs/Android_Note/blob/master/UI-Button.md)
