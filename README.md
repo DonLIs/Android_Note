@@ -4,6 +4,8 @@
 
 * [数据结构](https://github.com/DonLIs/Android_Note/blob/master/数据结构.md)
 
+* [Android启动模式](https://github.com/DonLIs/Android_Note/blob/master/Android启动模式.md)
+
 ## 源码分析
 
 * [okhttp3源码分析](https://github.com/DonLIs/Android_Note/blob/master/okhttp3源码分析.md)
@@ -29,8 +31,6 @@
 * [协程详解](https://github.com/DonLIs/Android_Note/blob/master/Coroutine.md)
 
 ## 开发笔记
-
-* [Android启动模式](https://github.com/DonLIs/Android_Note/blob/master/Android启动模式.md)
 
 * [启动页背景图全屏、沉浸式](https://github.com/DonLIs/Android_Note/blob/master/Splash.md)
 
