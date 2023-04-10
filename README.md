@@ -30,6 +30,9 @@
 
 * [协程详解](https://github.com/DonLIs/Android_Note/blob/master/Coroutine.md)
 
+* [线程池详解](https://github.com/DonLIs/Android_Note/blob/master/ThreadPoolExecutor.md)
+
+
 ## 开发笔记
 
 * [启动页背景图全屏、沉浸式](https://github.com/DonLIs/Android_Note/blob/master/Splash.md)
