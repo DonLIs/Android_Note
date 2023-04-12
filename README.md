@@ -20,6 +20,8 @@
 
 * [LiveData源码分析](https://github.com/DonLIs/Android_Note/blob/master/LiveData源码分析.md)
 
+* [消息机制源码分析](https://github.com/DonLIs/Android_Note/blob/master/消息机制源码分析.md)
+
 ## 开源代码详解
 
 * [ViewModel详解](https://github.com/DonLIs/Android_Note/blob/master/ViewModel.md)
