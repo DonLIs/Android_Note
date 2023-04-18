@@ -6,6 +6,8 @@
 
 * [Android启动模式](https://github.com/DonLIs/Android_Note/blob/master/Android启动模式.md)
 
+* [泛型](https://github.com/DonLIs/Android_Note/blob/master/泛型.md)
+
 ## 源码分析
 
 * [okhttp3源码分析](https://github.com/DonLIs/Android_Note/blob/master/okhttp3源码分析.md)
